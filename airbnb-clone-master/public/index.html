@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+  <!-- Font Awecome -->
+  <script src="https://kit.fontawesome.com/5330c4447b.js" crossorigin="anonymous"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- extrnal css  -->
+  <link rel="/airbnb-clone-master/public/style.css">
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>React App</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gulzar&family=Ubuntu&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      font-family: 'Ubuntu', sans-serif;
+    }
+
+    /* Navbar styled here */
+    nav {
+      height: 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* border-bottom:1px solid #ccc; */
+    }
+
+    /* Logo styled here */
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* logo styling */
+    .logo img {
+      height: 4.5rem;
+      margin-left: 3rem;
+    }
+
+    /* Site name */
+    .logo span {
+      font-size: 25px;
+      font-weight: bolder;
+      color: #ff385c;
+
+    }
+
+    .search {
+      background-color: #ff385c;
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .search i {
+      color: white;
+    }
+
+    .mid-nav span {
+      padding: 10px;
+    }
+
+    .mid-nav span a {
+      color: black;
+    }
+
+
+
+    /* Right nav styled here */
+
+    .right-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 3rem;
+    }
+
+    /* right navigation content  */
+    .right-nav div {
+      margin-left: 1rem;
+      /* padding: 8px; */
+    }
+
+
+    .dropdown i {
+      color: rgb(61, 60, 60);
+
+    }
+
+    /* rigtht nav profile styled here */
+
+
+    .fa-user {
+      margin-left: 8px;
+    }
+
+    .card-img {
+      height: 16rem;
+    }
+
+    .card {
+      height: 18rem;
+      text-transform: capitalize;
+    }
+
+
+    .card-body {
+      display: flex;
+      height: 8rem;
+      flex-direction: column;
+    }
+
+    .card-body span {
+      font-size: .9rem;
+    }
+
+    .fa-heart {
+      font-size: 1.5rem;
+      position: absolute;
+      top: 2%;
+      left: 90%;
+      color: white;
+    }
+
+    /* mediaquery for navbar responsiveness */
+    @media only screen and (max-width: 768px) {
+      nav {
+        height: 3.5rem;
+      }
+
+      .logo img {
+        height: 3.5rem;
+        margin-left: 0;
+      }
+
+      .logo span {
+        display: none;
+      }
+
+
+
+      .right-nav {
+        margin-right: .5rem;
+      }
+
+      .host {
+        display: none;
+      }
+    }
+
+    .shadow-custom {
+      box-shadow: 0 2px 7px 0 rgba(0, 0, 0, .25), 0 3px 10px 6px rgba(0, 0, 0, 0.06) !important;
+    }
+
+
+    @media only screen and (max-width: 930px) {
+      .mid-nav {
+        display: none;
+      }
+
+      .bottom-footer {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <div class="main-container" style=" position: sticky; top:0px; z-index: 1;">
+
+    <!-- Navbar starts from here -->
+    <nav id="navbar" class="shadow-sm p-3 mb-4 bg-body ">
+
+      <!-- Navbar logo added here -->
+      <div class="logo">
+        <a href="/"><img src="ABNB-4aaade0f.png" alt="logo"></a>
+        <span>airbnb</span>
+      </div>
+
+      <!-- This is middle searchbar of our website -->
+      <div class="mid-nav shadow p-3  bg-body rounded-pill">
+
+        <span>
+          <a href="#">Anywhere</a>
+        </span>
+        <span>
+          |
+        </span>
+        <span>
+          <a href="#">Any Week</a>
+        </span>
+        <span>
+          |
+        </span>
+        <span>Add Guests</span>
+        <a class="search" href=""><i class="fa-solid fa-magnifying-glass"></i></i></a>
+
+      </div>
+
+      <!-- Right side of our navbar starts from here -->
+      <div class="right-nav">
+
+        <div class="host"><a class="text-dark" href="/host">become a host</a></div>
+        <div class="earthlogo">
+          <i class="fa-solid fa-globe fs-5"></i>
+        </div>
+
+        <!-- dropdown menu  -->
+        <div class="dropdown">
+          <a class="btn border-dark rounded-pill p-2" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class=" fs-6 fa-solid fa-bars"></i>
+            <i class=" fs-6 fa-solid fa-user"></i>
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li class="dropdown-item" style="cursor: pointer;" , data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop">
+              login/signup
+            </li>
+
+            <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="/host">airbnb your home</a></li>
+            <li><a class="dropdown-item" href="#">host your experience</a></li>
+            <li><a class="dropdown-item" href="https://www.airbnb.co.in/help?audience=guest">help</a></li>
+          </ul>
+        </div>
+
+
+      </div>
+
+    </nav>
+
+  </div>
+
+
+
+
+
+
+
+  <!-- This is card that stores all hotels information this card is looped using foreach
+         data get from mongodb atlas sampledatabase -->
+  <section class="container">
+
+    <div class="row gy-1">
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/Soho Cozy, Spacious and Convenient"><img class="card-img "
+              src="https://a0.muscache.com/im/pictures/f0ea4cba-c771-41b6-92c5-caa646edb513.jpg?im_w=1200"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                Hong Kong, Hong Kong Island, Hong Kong
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              Soho Cozy, Spacious and Convenient
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 11,989</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/The LES Apartment"><img class="card-img "
+              src="https://a0.muscache.com/im/pictures/miso/Hosting-580103554611229141/original/57942774-d17b-412f-ab09-d7077cdf0f56.jpeg?im_w=1200"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                New York, NY, United States
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              The LES Apartment
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 11,000</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/Resort-like living in Williamsburg"><img class="card-img "
+              src="https://a0.muscache.com/im/pictures/5f6bddac-3d43-4cec-9ca8-997520fb6165.jpg?im_w=1200"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                rooklyn, NY, United States
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              Resort-like living in Williamsburg
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 21,589</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/Private Room (2)  in Guest House at Coogee Beach"><img class="card-img "
+              src="https://a0.muscache.com/im/pictures/miso/Hosting-573060765412706036/original/ffb7174f-e8b5-4051-a9a1-7a5d230a6270.jpeg?im_w=1200"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                Coogee, NSW, Australia
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              Private Room (2) in Guest House at Coogee Beach
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 22,500</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/Footprint - Wilderness Experience | Cabin No.3"><img class="card-img "
+              src="https://a0.muscache.com/im/pictures/9a9b3bfe-a620-4ee3-a44f-f028389bbd94.jpg?im_w=1200"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                India
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              Footprint - Wilderness Experience | Cabin No.3
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 19,999</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/Thung Samo"><img class="card-img "
+              src="https://a0.muscache.com/im/pictures/7a83743c-b733-482a-aa4a-aa28e3fa9469.jpg?im_w=1200"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                Thung Samo, Phetchabun, Thailand
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              Thung Samo
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 19,999</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/Cute Riverside Cottage 200 mtrs to Morjim Beach"><img class="card-img "
+              src="https://a0.muscache.com/im/pictures/86fdcee7-3196-4586-a770-5ba106d3dfb3.jpg?im_w=1200"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                Morjim, Goa
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              Cute Riverside Cottage 200 mtrs to Morjim Beach
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 19,111</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/Modern ranch cabin at the base of the mountains!"><img class="card-img "
+              src="https://a0.muscache.com/im/pictures/a017859a-f4b8-499b-b871-f830b6053ad6.jpg?im_w=1200"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                Westcliffe, Colorado, United States
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              Modern ranch cabin at the base of the mountains!
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 32,333</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/Şehir merkezine çok yakın doğa içinde tinyhouse..."><img class="card-img "
+              src="https://a0.muscache.com/im/pictures/cb4eb409-2597-4632-b561-50ceb448fe03.jpg?im_w=1200"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                Uludağ, Bursa, Turkey
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              Şehir merkezine çok yakın doğa içinde tinyhouse...
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 12,456</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/Marina | Hotel facilities | Amazing view"><img class="card-img "
+              src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-53443003/original/0d12ebad-668e-4712-90c5-04fde14b6d86.jpeg?im_w=1200"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                Dubai,United Arab Emirates
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              Marina | Hotel facilities | Amazing view
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 14,789</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+        <div class="card">
+          <i class="fa-regular fa-heart"></i>
+          <a href="/details/My home"><img class="card-img "
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2VwiQIYqNTUXl7IatCQ4EXZHtl8B1s5zbzPb2qVg71_zFj0fcEeTkZXiF&amp;s=10"
+              class="card-img-top" alt="image"></a>
+
+          <div class="card-body">
+            <span class="card-text location">
+              <b>
+                pune
+              </b>
+            </span>
+            <span class="card-text text-start text-secondary">
+              My home
+            </span>
+            <span class="card-text price text-start">
+              <b>₹ 100000</b> night
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- card ends here -->
+  <div class="bottom-footer">
+    <footer
+      class="homefooter bg-light text-center text-lg-start fixed-bottom shadow-custom w-100 d-flex justify-content-between ">
+      <!-- Copyright -->
+      <div class="p-2 ms-5">
+        <span class="px-2"> © 2020 Copyright: </span>
+        <span class="px-2">· Privacy</span>
+        <span class="px-2">· Terms</span>
+        <span class="px-2">· Sitemap</span>
+        <span class="px-2">· Company details</span>
+        <span class="px-2">· Destinations</span>
+      </div>
+      <div class="p-2" style="background-color: #ffffff">
+        <span class="px-2"> English (IN)</span>
+        <span class="px-2"> ₹ INR</span>
+        <a class="me-5" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+          aria-controls="offcanvasExample">
+          Support & resources
+        </a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-body">
+        <div>
+          <footer class="text-center text-lg-start bg-light text-muted">
+
+            <section class=" border-bottom">
+              <div class="container text-center text-md-start">
+                <!-- Grid row -->
+                <div class="row mt-1">
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-4 col-xl-3 mx-auto ">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold ">
+                      Support
+                    </h6>
+                    <p>
+                      <a href="#!" class="text-reset">Help Center</a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">AirCover</a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">Cancellation options</a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">Our COVID-19 Response</a>
+                    </p>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2 col-lg-2 col-xl-2 mx-auto ">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold ">
+                      Community
+                    </h6>
+                    <p>
+                      <a href="#!" class="text-reset">Airbnb.org:disaster relief</a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">Combating discrimination</a>
+                    </p>
+
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-2 col-xl-2 mx-auto ">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold ">
+                      Hosting
+                    </h6>
+                    <p>
+                      <a href="#!" class="text-reset">Airbnb your home</a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">AirCover for Hosts</a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">Explore hosting resources</a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">Visit our community forum</a>
+                    </p>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 ">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold ">Airbnb</h6>
+                    <p>
+                      <a href="#!" class="text-reset">Newsroom</a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">Learn about new features
+                      </a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">Letter from our founders</a>
+                    </p>
+                  </div>
+                  <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+              </div>
+            </section>
+          </footer>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+
+</html>
